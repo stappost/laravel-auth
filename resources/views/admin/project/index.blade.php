@@ -36,7 +36,8 @@
                                         class="btn btn-sm btn-warning mx-2">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <form action="{{ route('admin.project.destroy', $project) }}" method="POST">
+                                    <form action="{{ route('admin.project.destroy', $project) }}" method="POST"
+                                        onsubmit="return confirm('sei sicuro di voler cancellare questo progetto?')">
                                         @csrf
                                         @method('DELETE')
 
