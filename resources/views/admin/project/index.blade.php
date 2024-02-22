@@ -23,7 +23,7 @@
                                 <td>{{ $project->start_project }}</td>
                                 <td>{{ $project->finish_project }}</td>
                                 <td>{{ $project->in_team ? 'In team' : 'In solo' }}</td>
-                                <td>
+                                <td class="d-flex">
                                     <a href="{{ route('admin.project.show', ['project' => $project]) }}"
                                         class="btn btn-sm btn-primary">
                                         <i class="fa-regular fa-eye"></i>
@@ -32,10 +32,15 @@
                                         class="btn btn-sm btn-warning mx-2">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <a href="{{ route('admin.project.destroy', ['project' => $project]) }}"
-                                        class="btn btn-sm btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
+                                    <form action="{{ route('admin.project.destroy', $project) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
