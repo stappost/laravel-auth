@@ -23,7 +23,11 @@
                                 <td>{{ $project->start_project }}</td>
                                 <td>{{ $project->finish_project }}</td>
                                 <td>{{ $project->in_team ? 'In team' : 'In solo' }}</td>
-                                <td><a href="{{ route('admin.project.show', ['project' => $project]) }}">Approfondimento</a>
+                                <td>
+                                    <a href="{{ route('admin.project.show', ['project' => $project]) }}"
+                                        class="btn btn-sm btn-primary">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
