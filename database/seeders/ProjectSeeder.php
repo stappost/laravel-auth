@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 use Faker\Generator as Faker;
 
@@ -24,6 +25,7 @@ class ProjectSeeder extends Seeder
             $new_project->description = $faker->paragraphs(2, true);
             $new_project->start_project = $faker->dateTimeBetween('-4 week', '-1 week');
             $new_project->finish_project = $faker->dateTimeBetween('-1 week', now());
+            $new_project->slug = Str::slug($new_project->name, '-');
             $new_project->in_team = '0';
 
             $new_project->save();
