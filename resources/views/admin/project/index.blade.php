@@ -28,6 +28,14 @@
                                         class="btn btn-sm btn-primary">
                                         <i class="fa-regular fa-eye"></i>
                                     </a>
+                                    <a href="{{ route('admin.project.edit', ['project' => $project]) }}"
+                                        class="btn btn-sm btn-warning mx-2">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <a href="{{ route('admin.project.destroy', ['project' => $project]) }}"
+                                        class="btn btn-sm btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
