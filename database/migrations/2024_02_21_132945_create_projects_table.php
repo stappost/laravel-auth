@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('slug', 50);
             $table->text('description');
             $table->string('logo', 255)->nullable();
-            $table->dateTime('start_project');
-            $table->dateTime('finish_project')->nullable();
+            $table->date('start_project');
+            $table->date('finish_project')->nullable();
             $table->boolean('in_team');
             $table->timestamps();
         });

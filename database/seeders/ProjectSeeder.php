@@ -22,9 +22,9 @@ class ProjectSeeder extends Seeder
         for($i = 0; $i<10; $i++){
             $new_project = new Project();
             $new_project->name = $faker->words(3, true);
-            $new_project->description = $faker->paragraphs(2, true);
-            $new_project->start_project = $faker->dateTimeBetween('-4 week', '-1 week');
-            $new_project->finish_project = $faker->dateTimeBetween('-1 week', now());
+            $new_project->description = $faker->paragraphs(4, true);
+            $new_project->start_project = $faker->date();
+            $new_project->finish_project = $faker->date();
             $new_project->slug = Str::slug($new_project->name, '-');
             $new_project->in_team = '0';
 
