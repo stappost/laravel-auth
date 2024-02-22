@@ -13,6 +13,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
+        
         return true;
     }
 
@@ -24,7 +25,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|unique:projects',
+            'name' => 'required|max:50',
             'description' => 'required',
             'logo'=> 'max:255',
             'start_project'=> 'required|date',
@@ -36,7 +37,6 @@ class UpdateProjectRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'E\' necessario dare un nome al tuo progetto',
             'name.max' => 'Il nome deve essere lungo al massimo 50 caratteri',
             'name.unique' => 'E\' presente già un progetto con questo nome',
             'description.required' => 'E\' necessaria una descrizione per tuo progetto',

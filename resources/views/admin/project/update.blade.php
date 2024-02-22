@@ -8,13 +8,13 @@
             </div>
             <div class="col-12">
 
-                @error($errors->any())
+                @if ($errors->any())
                     <ul>
-                        @foreach ($error->all() as $error)
-                            <li>{{ $message }}</li>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
-                @enderror
+                @endif
                 <form action="{{ route('admin.project.update', ['project' => $project]) }}" method="post">
                     @csrf
                     @method('PUT')
@@ -40,13 +40,13 @@
                             <h5>Il progetto è stato realizzato:</h5>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="in_team" id="flexRadioDefault1"
-                                    value=true>
+                                    value='1'>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Progetto in Team
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="in_team" value=false
+                                <input class="form-check-input" type="radio" name="in_team" value='0'
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Progetto in solo
