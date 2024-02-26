@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => 'required|max:50|unique:projects',
             'description' => 'required',
-            'logo'=> 'max:250',
+            'logo'=> 'max:250|image|size:1024',
             'start_project'=> 'required|date',
             'finish_project'=> 'date',
             'in_team'=> 'required'
@@ -42,6 +42,8 @@ class StoreProjectRequest extends FormRequest
             'name.unique' => 'E\' presente già un progetto con questo nome',
             'description.required' => 'E\' necessaria una descrizione per tuo progetto',
             'logo.max' => 'Il nome del file deve essere di al massimo 250 caratteri',
+            'logo.image' => 'Il file deve essere un\'immagine',
+            'logo.size' => 'Il file può pesare al massimo 1024kb',
             'start_project.required' => 'E\' necessaria una data di inizio progetto',
             'start_project.date' => 'La data deve essere in formato numerico Y-M-D',
             'finish_project.date' => 'La data deve essere in formato numerico Y-M-D',
