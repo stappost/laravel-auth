@@ -6,7 +6,6 @@
             {{ __('Dashboard') }}
         </h2>
         <div class="row justify-content-center">
-            <a href="{{ route('admin.project.index') }}" class="btn btn-square btn-primary">Guarda i miei Lavori</a>
             <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('User Dashboard') }}</div>
@@ -19,6 +18,7 @@
                         @endif
 
                         {{ __('You are logged in!') }}
+                        <a href="{{ route('admin.project.index') }}" class="btn btn-sm btn-primary">Guarda i miei Lavori</a>
                     </div>
                 </div>
             </div>
