@@ -36,16 +36,11 @@
                                         class="btn btn-sm btn-warning mx-2">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <form action="{{ route('admin.project.destroy', $project) }}" method="POST"
-                                        onsubmit="return confirm('sei sicuro di voler cancellare questo progetto?')">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-
-                                    </form>
+                                    <button class="btn btn-sm btn-danger btn_delete" data-projectid='{{ $project->id }}'
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        data-name='{{ $project->name }}'>
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -54,4 +49,5 @@
             </div>
         </div>
     </div>
+    @include('admin.project.modal_delete')
 @endsection
