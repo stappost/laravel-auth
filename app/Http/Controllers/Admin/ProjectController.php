@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -71,9 +72,10 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Project $project, Request $request)
     {
-        return view('admin.project.update', compact('project'));
+        $error_message = $request->error_message;
+        return view('admin.project.update', compact('project', 'error_message'));
     }
 
     /**
@@ -86,6 +88,15 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
+
+        $exist = Project::where('name', 'LIKE', $form_data['name'])
+            ->where('id', '!=', $project->id)
+            ->get();
+        
+        if(count($exist) > 0){
+            $error_message = 'Hai inserito un nome già presente tra i tuoi progetti';
+            return redirect()->route('admin.project.edit', compact('project', 'error_message'));
+        }
 
         if($request->hasFile('logo')){
             if($project->logo != null){
