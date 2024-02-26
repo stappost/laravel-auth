@@ -40,7 +40,7 @@ class UpdateProjectRequest extends FormRequest
             'name.max' => 'Il nome deve essere lungo al massimo 50 caratteri',
             'name.unique' => 'E\' presente già un progetto con questo nome',
             'description.required' => 'E\' necessaria una descrizione per tuo progetto',
-            'logo.max' => 'L\'URL deve essere di al massimo 255 caratteri',
+            'logo.max' => 'Il nome del file deve essere di al massimo 255 caratteri',
             'start_project.required' => 'E\' necessaria una data di inizio progetto',
             'start_project.date' => 'La data deve essere in formato numerico Y-M-D',
             'finish_project.date' => 'La data deve essere in formato numerico Y-M-D',
