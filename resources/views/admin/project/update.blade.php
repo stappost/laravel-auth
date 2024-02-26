@@ -65,6 +65,13 @@
                         </div>
                         <div class="col-6 my-3">
                             <label for="logo">Logo</label>
+                            @if ($project->logo != null)
+                                <div class="w-25">
+                                    <img src="{{ asset('/storage/' . $project->logo) }}" alt="{{ $project->name }}"
+                                        class="float-end img-fluid">
+
+                                </div>
+                            @endif
                             <input type="file" name="logo" id="logo"
                                 class="form-control @error('logo') is-invalid @enderror" accept="image/*">
                         </div>
