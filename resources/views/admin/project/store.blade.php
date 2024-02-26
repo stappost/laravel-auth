@@ -15,7 +15,7 @@
                         @endforeach
                     </ul>
                 @endif
-                <form action="{{ route('admin.project.store') }}" method="post">
+                <form action="{{ route('admin.project.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">
@@ -53,8 +53,7 @@
                         </div>
                         <div class="col-6 my-3">
                             <label for="logo">Logo</label>
-                            <input type="text" name="logo" id="logo" class="form-control" placeholder="Url logo"
-                                value='{{ old('logo') }}'>
+                            <input type="file" name="logo" id="logo" class="form-control" accept="image/*">
                         </div>
                         <div class="col-12">
                             <label for="description">Descrizione</label>

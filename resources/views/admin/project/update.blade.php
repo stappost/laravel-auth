@@ -15,7 +15,8 @@
                         @endforeach
                     </ul>
                 @endif
-                <form action="{{ route('admin.project.update', ['project' => $project]) }}" method="post">
+                <form action="{{ route('admin.project.update', ['project' => $project]) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -55,8 +56,7 @@
                         </div>
                         <div class="col-6 my-3">
                             <label for="logo">Logo</label>
-                            <input type="text" name="logo" id="logo" class="form-control" placeholder="Url logo"
-                                value='{{ old('logo') ?? $project->logo }}'>
+                            <input type="file" name="logo" id="logo" class="form-control" accept="image/*">
                         </div>
                         <div class="col-12">
                             <label for="description">Descrizione</label>
