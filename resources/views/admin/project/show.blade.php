@@ -18,6 +18,20 @@
                 </div>
                 <p>{{ $project->description }}</p>
             </div>
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-sm btn-primary"><a href="{{ route('admin.project.index') }}"
+                            class="text-light text-decoration-none">
+                            < Indietro </a>
+                    </button>
+
+                    <button class="btn btn-sm btn-primary mx-1"><a
+                            href="{{ route('admin.project.edit', ['project' => $project]) }}"
+                            class="text-light text-decoration-none">
+                            Modifica</a>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

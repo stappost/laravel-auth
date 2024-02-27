@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => 'required|max:50|unique:projects',
             'description' => 'required',
-            'logo'=> 'max:250|image|size:1024',
+            'logo'=> 'max:250|image|max:1024',
             'start_project'=> 'required|date',
             'finish_project'=> 'date',
             'in_team'=> 'required'

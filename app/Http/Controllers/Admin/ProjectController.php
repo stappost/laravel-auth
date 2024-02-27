@@ -88,7 +88,6 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
-
         $exist = Project::where('name', 'LIKE', $form_data['name'])
             ->where('id', '!=', $project->id)
             ->get();
